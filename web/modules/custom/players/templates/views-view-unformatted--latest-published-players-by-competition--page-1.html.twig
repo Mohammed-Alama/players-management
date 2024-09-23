@@ -1,0 +1,19 @@
+{% for row in rows %}
+  {%
+    set row_classes = [
+    default_row_class ? 'views-row',
+  ]
+  %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+
+{#    {{ dump(row.content['#row']._entity) }}#}
+{#    <div class="bolder-text">#}
+
+    {{row.content['#row']._entity.title[0].value | upper_case}}
+{#    </div>#}
+{#    {{- row.content -}}#}
+  </div>
+{% endfor %}
+
+{#{{ dump(extra) }}#}
+{#<p>{{ extra }}</p>#}

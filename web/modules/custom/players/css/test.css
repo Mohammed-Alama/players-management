@@ -1,0 +1,131 @@
+.bolder-text {
+  font-weight: bolder;
+}
+
+
+.federation-block,
+.competition-block {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.federation-block:hover,
+.competition-block:hover {
+  background-color: #f5f5f5;
+}
+
+.federation-link,
+.competition-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #0071b3;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.player-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+}
+
+.player-action {
+  margin-left: 10px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.player-action.approve {
+  background-color: #28a745;
+  color: white;
+}
+
+.player-action.reject {
+  background-color: #dc3545;
+  color: white;
+}
+
+.bulk-approve-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.player-approval-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.player-approval-table th,
+.player-approval-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.player-approval-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.player-approval-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.player-approval-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.approve-btn,
+.reject-btn,
+.edit-btn{
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.approve-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.reject-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.edit-btn {
+  background-color: #415ef1;
+  color: white;
+}
+
+.bulk-actions {
+  margin-top: 20px;
+}
+
+.bulk-actions button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#select-all {
+  margin-right: 5px;
+}

@@ -1,0 +1,36 @@
+{{ attach_library('players/players_styles') }}
+<h4>{{ 'Players for %competition (%federation)'|t({'%competition': competition.label, '%federation': federation.label}) }}</h4>
+<div class="player-list">
+  <form id="player-approval-form" method="post" action="{{ path('players.bulk_approve', {'competition': competition.id}) }}">
+    <table class="player-approval-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player Name</th>
+          <th>Approval Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for player_id, player_data in players %}
+          <tr>
+            <td><input type="checkbox" name="selected_players[]" {{ player_data.status == 'approved' ? 'disabled' : '' }} value="{{ player_id }}"></td>
+            <td>{{ player_data.player.field_full_name.value }}</td>
+            <td>{{ player_data.status }}</td>
+            <td>
+              {% if player_data.status != 'approved' %}
+              <a href="{{ path('players.player_registration_form', {'competition':competition.id,'player_id': player_id}) }}" class="edit-btn">Edit</a>
+              <a href="{{ path('players.reject_player_form', {'player': player_id, 'competition': competition.id}) }}" class="reject-btn">Reject</a>
+              {% else %}
+                No actions
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="bulk-actions">
+      <button type="submit" name="bulk_approve">Approve Selected</button>
+    </div>
+  </form>
+</div>

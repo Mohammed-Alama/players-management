@@ -1,0 +1,12 @@
+{{ attach_library('players/players_styles') }}
+<div class="federation-list">
+  {% if federations %}
+    <ul>
+    {% for federation in federations %}
+      <li>{{ federation }}</li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>{{ 'No federations found.'|t }}</p>
+  {% endif %}
+</div>

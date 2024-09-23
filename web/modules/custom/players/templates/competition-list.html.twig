@@ -1,0 +1,31 @@
+{# <h1>Competitions for {{ federation_label }}</h1>
+<div class="competition-list">
+  {% if competitions %}
+    <ul>
+      {% for competition in competitions %}
+        <li>{{ competition }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>{{ 'No competitions found.'|t }}</p>
+  {% endif %}
+</div> #}
+{{ attach_library('players/players_styles') }}
+
+<h4>{{ 'Competitions for %federation'|t({'%federation': federation.label}) }}</h4>
+<div class="competition-list">
+  {% for competition in competitions %}
+    <ul>
+      <li>
+        <div class="competition-block">
+          {{ competition['teaser'] }}
+          <a
+             href="{{ path('players.federation_competition_players', {'federation_id': federation.id, 'competition_id': competition['id']}) }}" class="competition-link"
+          >
+            {{ 'View Players'|t }}
+          </a>
+        </div>
+      </li>
+    </ul>
+  {% endfor %}
+</div>

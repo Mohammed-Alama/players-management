@@ -1,0 +1,88 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * @file
+ * Contains players.module.
+ */
+/**
+ * Implements hook_theme().
+ */
+function players_theme($existing, $type, $theme, $path): array
+{
+  return [
+    'node__club__teaser' => [
+      'template' => 'node--club--teaser',
+      'base hook' => 'node',
+      'path' => $path . '/templates',
+    ],
+    'views_view_fields__latest_published_players_by_competition__page_1' => [
+      'render element' => 'elements',
+      'template' => 'views-view-fields--latest-published-players-by-competition--page-1',
+      'base hook' => 'views_view',
+    ],
+    'federation_list' => [
+      'variables' => [
+        'federations' => [],
+      ],
+    ],
+    'competition_list' => [
+      'variables' => [
+        'competitions' => [],
+        'federation' => [],
+      ],
+    ],
+    'players_list' => [
+      'variables' => [
+        'federation' => [],
+        'competition' => [],
+        'players' => [],
+      ],
+    ],
+    'latest_players_by_competition' => [
+      'variables' => [
+        'players' => [],
+      ],
+    ],  
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function players_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+  if ($form_id == 'node_player_form' || $form_id == 'node_player_edit_form') {
+    $form['#attached']['library'][] = 'players/player_club';
+  }
+}
+
+/**
+ * Implements hook_install().
+ */
+function players_install()
+{
+  // Create the federation field for users.
+  FieldStorageConfig::create([
+    'field_name' => 'field_admin_federation',
+    'entity_type' => 'user',
+    'type' => 'entity_reference',
+    'settings' => ['target_type' => 'taxonomy_term'],
+  ])->save();
+
+  FieldConfig::create([
+    'field_name' => 'field_admin_federation',
+    'entity_type' => 'user',
+    'bundle' => 'user',
+    'label' => 'Federation',
+    'settings' => [
+      'handler' => 'default:taxonomy_term',
+      'handler_settings' => [
+        'target_bundles' => ['federation' => 'federation'],
+      ],
+    ],
+  ])->save();
+}

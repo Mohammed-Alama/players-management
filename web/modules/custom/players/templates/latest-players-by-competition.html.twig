@@ -1,0 +1,11 @@
+<h1>Latest Approved Players for {{ competition.label }}</h1>
+
+{% if players %}
+  <ul>
+    {% for player in players %}
+      <li>{{ player.field_full_name.value }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No approved players found for this competition.</p>
+{% endif %}
