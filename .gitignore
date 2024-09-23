@@ -18,15 +18,12 @@ RESULT.txt
 
 # Ignore development related files
 *.make
-*.txt
 *.ini
 *.md
 Vagrantfile
 build/
 vendor/
 web/core/
-web/modules/contrib/
-web/themes/contrib/
 web/profiles/contrib/
 web/libraries/
 web/sites/*/settings.local.php
