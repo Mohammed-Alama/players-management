@@ -1,0 +1,40 @@
+uuid: d161d171-bf8b-486e-9f71-01d2b4f6ce12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_club
+    - node.type.player
+    - paragraphs.paragraphs_type.club_association
+  module:
+    - entity_reference_revisions
+id: node.player.field_club
+field_name: field_club
+entity_type: node
+bundle: player
+label: Club
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      club_association: club_association
+    negate: 0
+    target_bundles_drag_drop:
+      club_association:
+        weight: 5
+        enabled: true
+      gallery:
+        weight: 6
+        enabled: false
+      global_media:
+        weight: 7
+        enabled: false
+      image_with_text:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

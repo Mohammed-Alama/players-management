@@ -1,0 +1,37 @@
+uuid: 72ada007-9a0e-4111-a94e-12398321a585
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_gallery_images
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.global_media
+  module:
+    - entity_reference_revisions
+id: paragraph.gallery.field_gallery_images
+field_name: field_gallery_images
+entity_type: paragraph
+bundle: gallery
+label: 'Gallery Images'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      global_media: global_media
+    negate: 0
+    target_bundles_drag_drop:
+      gallery:
+        weight: 5
+        enabled: false
+      global_media:
+        weight: 4
+        enabled: true
+      image_with_text:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

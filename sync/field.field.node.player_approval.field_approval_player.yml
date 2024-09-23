@@ -1,0 +1,29 @@
+uuid: 4d6a21f1-c287-4447-a6c5-70bcc0674115
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_approval_player
+    - node.type.player
+    - node.type.player_approval
+id: node.player_approval.field_approval_player
+field_name: field_approval_player
+entity_type: node
+bundle: player_approval
+label: 'Approval Player'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      player: player
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

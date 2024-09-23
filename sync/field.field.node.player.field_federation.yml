@@ -1,0 +1,29 @@
+uuid: f1312fdf-19e9-4fe3-970c-a41f69c5bb38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_federation
+    - node.type.player
+    - taxonomy.vocabulary.federation
+id: node.player.field_federation
+field_name: field_federation
+entity_type: node
+bundle: player
+label: Federation
+description: 'Used to define where player is assigned to which federation'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      federation: federation
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,21 @@
+uuid: 2e2a769a-b70e-4647-81b2-a8737d34ee3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_position
+    - node.type.player
+  module:
+    - options
+id: node.player.field_position
+field_name: field_position
+entity_type: node
+bundle: player
+label: Position
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,22 @@
+uuid: 4d541b8f-7b5a-4a7e-8104-f01a6b6ec5cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: players_url_paths_using_full_names
+label: 'Players URL paths using Full Names'
+type: 'canonical_entities:node'
+pattern: 'players/[node:field_full_name]'
+selection_criteria:
+  11a72f60-0455-49c1-b878-c9688b5626b8:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 11a72f60-0455-49c1-b878-c9688b5626b8
+    context_mapping:
+      node: node
+    bundles:
+      player: player
+selection_logic: and
+weight: -5
+relationships: {  }

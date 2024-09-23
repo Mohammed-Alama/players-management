@@ -1,0 +1,25 @@
+uuid: ce5c38e2-4cb1-4895-9f25-9cd6eff2335a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_admin_federation
+    - taxonomy.vocabulary.federation
+  module:
+    - user
+id: user.user.field_admin_federation
+field_name: field_admin_federation
+entity_type: user
+bundle: user
+label: Federation
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      federation: federation
+field_type: entity_reference

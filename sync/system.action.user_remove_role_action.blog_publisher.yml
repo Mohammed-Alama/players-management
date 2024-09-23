@@ -1,0 +1,14 @@
+uuid: b237333b-ec7f-4407-8045-b9b4087d2ca9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.blog_publisher
+  module:
+    - user
+id: user_remove_role_action.blog_publisher
+label: 'Remove the Blog Publisher role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: blog_publisher

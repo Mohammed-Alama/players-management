@@ -1,0 +1,24 @@
+uuid: 18782dbe-e2d5-41a8-b4fa-5e1927e3283a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.test_block
+    - field.field.block_content.test_block.body
+  module:
+    - text
+id: block_content.test_block.default
+targetEntityType: block_content
+bundle: test_block
+mode: default
+content:
+  body:
+    type: text_trimmed
+    label: inline
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

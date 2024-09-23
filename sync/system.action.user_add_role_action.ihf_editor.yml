@@ -1,0 +1,14 @@
+uuid: 5a16cdf4-01e8-43c8-8794-2a41312eb2ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ihf_editor
+  module:
+    - user
+id: user_add_role_action.ihf_editor
+label: 'Add the IHF Editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: ihf_editor

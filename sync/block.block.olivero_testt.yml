@@ -1,0 +1,33 @@
+uuid: 954d67be-d786-4ba4-8d88-f798014ab140
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:test_block:39336921-400c-4ed3-9739-705d43edcfd0'
+  module:
+    - block_content
+    - node
+  theme:
+    - olivero
+id: olivero_testt
+theme: olivero
+region: footer_top
+weight: 0
+provider: null
+plugin: 'block_content:39336921-400c-4ed3-9739-705d43edcfd0'
+settings:
+  id: 'block_content:39336921-400c-4ed3-9739-705d43edcfd0'
+  label: 'Test Block On Competitions'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      competition: competition

@@ -1,0 +1,9 @@
+uuid: 69cde318-7ab6-4740-ba69-0ddb7ffed75e
+langcode: en
+status: true
+dependencies: {  }
+id: blog_publisher
+label: 'Blog Publisher'
+weight: 8
+is_admin: null
+permissions: {  }

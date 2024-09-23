@@ -1,0 +1,9 @@
+uuid: dba3bbb2-dae2-430f-a007-cbdc7c142b58
+langcode: en
+status: true
+dependencies: {  }
+name: City
+vid: city
+description: 'Manage which city A Federation can play in it'
+weight: 0
+new_revision: false

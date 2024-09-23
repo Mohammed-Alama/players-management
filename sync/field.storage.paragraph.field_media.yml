@@ -1,0 +1,23 @@
+uuid: 8f53f254-07c5-4024-a6c4-91530cb10bd4
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - paragraphs
+id: paragraph.field_media
+field_name: field_media
+entity_type: paragraph
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

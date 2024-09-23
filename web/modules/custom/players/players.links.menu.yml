@@ -1,0 +1,13 @@
+players.settings:
+  title: 'Players settings'
+  description: 'Config Players module'
+  route_name: players.settings
+  parent: system.admin_config
+
+players.create_admin_form:
+  title: 'Create Admin'
+  description: 'Create a new admin with specific role and federation'
+  parent: entity.user.collection
+  menu_name: tabs
+  route_name: players.create_admin_form
+  weight: 100

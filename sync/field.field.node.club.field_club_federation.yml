@@ -1,0 +1,29 @@
+uuid: 3d558144-1312-431d-897e-fe20fd067fa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_club_federation
+    - node.type.club
+    - taxonomy.vocabulary.federation
+id: node.club.field_club_federation
+field_name: field_club_federation
+entity_type: node
+bundle: club
+label: Federation
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      federation: federation
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

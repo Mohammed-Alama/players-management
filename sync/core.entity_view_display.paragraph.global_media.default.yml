@@ -1,0 +1,32 @@
+uuid: 292b1772-8707-4025-bcd3-ad79edb94b7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.global_media.field_media
+    - field.field.paragraph.global_media.field_media_type
+    - paragraphs.paragraphs_type.global_media
+  module:
+    - file
+    - options
+id: paragraph.global_media.default
+targetEntityType: paragraph
+bundle: global_media
+mode: default
+content:
+  field_media:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_media_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

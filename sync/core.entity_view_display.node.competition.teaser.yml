@@ -1,0 +1,43 @@
+uuid: 7170ccac-bda8-4903-a568-f05e15ad922a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.competition.body
+    - field.field.node.competition.field_deadline
+    - field.field.node.competition.field_end_date
+    - field.field.node.competition.field_start_date
+    - field.field.node.competition.field_teams
+    - node.type.competition
+  module:
+    - datetime
+    - user
+id: node.competition.teaser
+targetEntityType: node
+bundle: competition
+mode: teaser
+content:
+  field_deadline:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_teams:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  field_end_date: true
+  field_start_date: true
+  langcode: true
+  links: true

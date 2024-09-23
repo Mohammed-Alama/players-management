@@ -1,0 +1,131 @@
+players.settings:
+  path: 'admin/config/players/settings'
+  defaults:
+    _form: '\Drupal\players\Form\PlayersSettingsForm'
+    _title: 'Players settings'
+  requirements:
+    _permission: 'access content'
+
+players.player_registration:
+  path: '/players/player-registration'
+  defaults:
+    _title: 'Player Registration'
+    _form: 'Drupal\players\Form\PlayerRegistrationForm'
+  requirements:
+    _permission: 'access content'
+
+players.check_club_federation:
+  path: '/players/check-club-federation/{club}/{federation}'
+  defaults:
+    _controller: '\Drupal\players\Controller\PlayersController::checkClubFederation'
+  requirements:
+    _permission: 'access content'
+
+players.club_autocomplete:
+  path: '/players/club-autocomplete/{federation}'
+  defaults:
+    _controller: '\Drupal\players\Controller\ClubAutocompleteController::handleAutocomplete'
+  requirements:
+    _permission: 'access content'
+
+players.create_admin_form:
+  path: '/admin/people/create-admin'
+  defaults:
+    _form: '\Drupal\players\Form\CreateAdminForm'
+    _title: 'Create Admin'
+  requirements:
+    _permission: 'administer users'
+
+players.federation_competitions:
+  path: '/federation/competitions'
+  defaults:
+    _controller: '\Drupal\players\Controller\FederationCompetitionsController::listCompetitions'
+    _title: 'My Competitions'
+  requirements:
+    _custom_access: '\Drupal\players\Access\FederationAccessCheck::access'
+
+players.player_registration_form:
+  path: '/competition/{competition}/register-player'
+  defaults:
+    _form: '\Drupal\players\Form\PlayerRegistrationForm'
+    _title: 'Register Player'
+  requirements:
+    _custom_access: '\Drupal\players\Access\PlayerRegistrationAccessCheck::access'
+  options:
+    parameters:
+      competition:
+        type: entity:node
+
+players.published_federations:
+  path: '/published-federations'
+  defaults:
+    _controller: '\Drupal\players\Controller\FederationsController::listPublished'
+    _title: 'Published Federations'
+  requirements:
+    _role: 'competition_admin'
+
+players.federation_competitions_admin:
+  path: '/federations/{federation_id}/competitions'
+  defaults:
+    _controller: '\Drupal\players\Controller\CompetitionsController::list'
+  requirements:
+    _role: 'competition_admin'
+
+players.federation_competition_players:
+  path: '/federations/{federation_id}/competitions/{competition_id}/players'
+  defaults:
+    _controller: '\Drupal\players\Controller\CompetitionsPlayersController::listPlayers'
+    _title: 'Players'
+  requirements:
+    _role: 'competition_admin'
+
+players.bulk_approve:
+  path: '/players/bulk-approve/{competition}'
+  defaults:
+    _controller: '\Drupal\players\Controller\ApprovalPlayersController::bulkApprove'
+  requirements:
+    _role: 'competition_admin'
+  methods: [POST]
+
+players.reject_player_form:
+  path: '/players/reject/{player}/{competition}'
+  defaults:
+    _form: '\Drupal\players\Form\PlayerRejectionForm'
+    _title: 'Reject Player'
+  requirements:
+    _role: 'competition_admin'
+
+players.api_login:
+  path: '/api/login'
+  defaults:
+    _controller: '\Drupal\players\Controller\UserLoginApiController::login'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
+
+players.api_logout:
+  path: '/api/logout'
+  defaults:
+    _controller: '\Drupal\players\Controller\UserLoginApiController::logout'
+  methods: [POST]
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+players.api_user_info:
+  path: '/api/user/info'
+  defaults:
+    _controller: '\Drupal\players\Controller\UserLoginApiController::getUserInfo'
+  methods: [GET]
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+players.latest_players_by_competition:
+  path: '/competitions/{competition}/latest-players'
+  defaults:
+    _controller: '\Drupal\players\Controller\LatestPlayersByCompetitionController::latestByCompetition'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      competition:
+        type: entity:node

@@ -1,0 +1,24 @@
+uuid: 58f13bb3-1d1a-40cd-b4bf-feadb0aa16bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.club
+  module:
+    - text
+id: node.club.body
+field_name: body
+entity_type: node
+bundle: club
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

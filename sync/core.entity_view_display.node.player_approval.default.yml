@@ -1,0 +1,55 @@
+uuid: 74947bb7-9852-43bc-9977-2d7c5f14b390
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.player_approval.field_approval_competition
+    - field.field.node.player_approval.field_approval_player
+    - field.field.node.player_approval.field_approval_rejection_reason
+    - field.field.node.player_approval.field_approval_status
+    - node.type.player_approval
+  module:
+    - options
+    - user
+id: node.player_approval.default
+targetEntityType: node
+bundle: player_approval
+mode: default
+content:
+  field_approval_competition:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_approval_player:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_approval_rejection_reason:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_approval_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

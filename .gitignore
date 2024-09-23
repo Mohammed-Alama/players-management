@@ -20,7 +20,6 @@ RESULT.txt
 *.make
 *.txt
 *.ini
-*.yml
 *.md
 Vagrantfile
 build/

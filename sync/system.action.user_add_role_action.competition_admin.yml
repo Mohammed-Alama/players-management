@@ -1,0 +1,14 @@
+uuid: e3d7b78a-c596-4b9b-9151-10b2e18bcc7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.competition_admin
+  module:
+    - user
+id: user_add_role_action.competition_admin
+label: 'Add the Competition Admin role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: competition_admin

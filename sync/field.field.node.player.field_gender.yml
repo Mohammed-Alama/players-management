@@ -1,0 +1,21 @@
+uuid: 9bf10f6e-c2cb-4d72-aecb-1ed0f14a9371
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gender
+    - node.type.player
+  module:
+    - options
+id: node.player.field_gender
+field_name: field_gender
+entity_type: node
+bundle: player
+label: Gender
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,21 @@
+uuid: 83054eb8-6bd0-4f4f-bfb7-1a897f0e6e3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_start_date
+    - node.type.competition
+  module:
+    - datetime
+id: node.competition.field_start_date
+field_name: field_start_date
+entity_type: node
+bundle: competition
+label: 'Start Date'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

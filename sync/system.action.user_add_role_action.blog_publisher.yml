@@ -1,0 +1,14 @@
+uuid: ab8df893-539b-4b10-a94d-440a8ddbe5bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.blog_publisher
+  module:
+    - user
+id: user_add_role_action.blog_publisher
+label: 'Add the Blog Publisher role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: blog_publisher

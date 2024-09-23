@@ -1,0 +1,9 @@
+uuid: bb4e42f9-678c-454f-ba70-e05c4a71de3e
+langcode: en
+status: true
+dependencies: {  }
+name: Federation
+vid: federation
+description: 'Used to define their Players'
+weight: 0
+new_revision: false

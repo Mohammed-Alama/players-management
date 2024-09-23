@@ -1,0 +1,14 @@
+uuid: a318e33c-3c7d-4a34-a5fa-ab4376a34723
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.federation_admin
+  module:
+    - user
+id: user_remove_role_action.federation_admin
+label: 'Remove the Federation Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: federation_admin

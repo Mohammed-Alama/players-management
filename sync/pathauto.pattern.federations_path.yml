@@ -1,0 +1,22 @@
+uuid: 70cc2323-77dd-4fd8-951d-85640ea8b48b
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: federations_path
+label: 'Federations path'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/federations/[term:tid]'
+selection_criteria:
+  a929ecea-e859-4a48-9b48-81e01b86e833:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: a929ecea-e859-4a48-9b48-81e01b86e833
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      federation: federation
+selection_logic: and
+weight: -5
+relationships: {  }

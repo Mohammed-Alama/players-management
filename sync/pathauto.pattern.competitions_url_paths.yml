@@ -1,0 +1,22 @@
+uuid: e53d0704-68b9-4d3f-9949-94fd2e624537
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: competitions_url_paths
+label: 'Competitions URL paths'
+type: 'canonical_entities:node'
+pattern: 'competitions/[node:nid]'
+selection_criteria:
+  58ba15ae-b53a-45de-a4a9-0d0f6c47c1dd:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 58ba15ae-b53a-45de-a4a9-0d0f6c47c1dd
+    context_mapping:
+      node: node
+    bundles:
+      competition: competition
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,39 @@
+uuid: cd2e5ea5-f5cf-4ac5-a31a-5aa9ef97dae1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_position
+field_name: field_position
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: setter
+      label: Setter
+    -
+      value: outside_hitter
+      label: 'Outside Hitter'
+    -
+      value: opposite_hitter
+      label: 'Opposite Hitter'
+    -
+      value: middle_blocker
+      label: 'Middle Blocker'
+    -
+      value: libero
+      label: Libero
+    -
+      value: defensive_specialist
+      label: 'Defensive Specialist'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

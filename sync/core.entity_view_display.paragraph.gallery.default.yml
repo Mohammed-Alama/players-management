@@ -1,0 +1,57 @@
+uuid: db505445-6d67-411e-bf4a-73dade2afee2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.gallery.field_date
+    - field.field.paragraph.gallery.field_gallery_images
+    - field.field.paragraph.gallery.field_name
+    - field.field.paragraph.gallery.field_thumbnail
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - datetime
+    - entity_reference_revisions
+    - image
+id: paragraph.gallery.default
+targetEntityType: paragraph
+bundle: gallery
+mode: default
+content:
+  field_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_gallery_images:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_thumbnail:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

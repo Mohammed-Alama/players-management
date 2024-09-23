@@ -1,0 +1,8 @@
+name: Players
+type: module
+description: Players management module.
+package: Custom
+version: 1.0
+core_version_requirement: 10.x
+dependencies:
+  - drupal:views

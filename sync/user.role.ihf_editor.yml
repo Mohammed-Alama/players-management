@@ -1,0 +1,9 @@
+uuid: 8f3e24e1-0b53-4d4e-a2c6-d6d19eb85994
+langcode: en
+status: true
+dependencies: {  }
+id: ihf_editor
+label: 'IHF Editor'
+weight: 6
+is_admin: null
+permissions: {  }

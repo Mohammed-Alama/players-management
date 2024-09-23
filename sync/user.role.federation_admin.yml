@@ -1,0 +1,9 @@
+uuid: c3de00f1-e36d-4a4c-81d8-7e723d931161
+langcode: en
+status: true
+dependencies: {  }
+id: federation_admin
+label: 'Federation Admin'
+weight: 5
+is_admin: null
+permissions: {  }

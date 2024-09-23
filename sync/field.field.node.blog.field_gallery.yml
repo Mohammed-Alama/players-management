@@ -1,0 +1,37 @@
+uuid: 0a11c43e-63f2-4a65-b1ed-eed8efc8960c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gallery
+    - node.type.blog
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - entity_reference_revisions
+id: node.blog.field_gallery
+field_name: field_gallery
+entity_type: node
+bundle: blog
+label: Gallery
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      gallery: gallery
+    negate: 0
+    target_bundles_drag_drop:
+      gallery:
+        weight: 5
+        enabled: true
+      global_media:
+        weight: 4
+        enabled: false
+      image_with_text:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

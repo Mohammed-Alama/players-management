@@ -1,0 +1,14 @@
+players_styles:
+  version: 1.x
+  css:
+    theme:
+      css/test.css: {}
+
+
+player_club:
+  js:
+    js/field_club_associations.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once

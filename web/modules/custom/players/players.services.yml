@@ -1,0 +1,5 @@
+services:
+  players.twig_extension.PlayersTwigExtension:
+    class: Drupal\players\PlayersTwigExtension
+    tags:
+      - { name: twig.extension }

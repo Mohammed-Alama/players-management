@@ -1,0 +1,25 @@
+uuid: 3c9997ee-9afa-492a-987b-13f074b771c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.test_block
+    - core.entity_view_mode.block_content.full
+    - field.field.block_content.test_block.body
+  module:
+    - text
+id: block_content.test_block.full
+targetEntityType: block_content
+bundle: test_block
+mode: full
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

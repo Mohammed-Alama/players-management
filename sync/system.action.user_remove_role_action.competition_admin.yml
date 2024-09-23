@@ -1,0 +1,14 @@
+uuid: bef3661a-9906-4a79-b4ad-7e369143cc1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.competition_admin
+  module:
+    - user
+id: user_remove_role_action.competition_admin
+label: 'Remove the Competition Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: competition_admin

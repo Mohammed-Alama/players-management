@@ -1,0 +1,16 @@
+uuid: a1d07a60-bba5-4e58-b61f-9d6f27e6429d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.federation.field_cities
+    - taxonomy.vocabulary.federation
+id: taxonomy_term.federation.default
+targetEntityType: taxonomy_term
+bundle: federation
+mode: default
+content: {  }
+hidden:
+  description: true
+  field_cities: true
+  langcode: true

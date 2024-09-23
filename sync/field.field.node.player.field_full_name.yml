@@ -1,0 +1,19 @@
+uuid: 632430fa-7ef0-4c30-ad48-dac5df240d0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_full_name
+    - node.type.player
+id: node.player.field_full_name
+field_name: field_full_name
+entity_type: node
+bundle: player
+label: 'Full Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

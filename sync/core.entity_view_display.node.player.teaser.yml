@@ -1,0 +1,35 @@
+uuid: 5a1abfb2-7fca-4c39-8fe5-98ca382b1f21
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.player.field_club
+    - field.field.node.player.field_date_of_birth
+    - field.field.node.player.field_federation
+    - field.field.node.player.field_full_name
+    - field.field.node.player.field_gender
+    - field.field.node.player.field_player_image
+    - field.field.node.player.field_position
+    - node.type.player
+  module:
+    - user
+id: node.player.teaser
+targetEntityType: node
+bundle: player
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_club: true
+  field_date_of_birth: true
+  field_federation: true
+  field_full_name: true
+  field_gender: true
+  field_player_image: true
+  field_position: true
+  langcode: true

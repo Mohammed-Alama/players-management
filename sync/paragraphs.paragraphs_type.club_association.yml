@@ -1,0 +1,10 @@
+uuid: 13767c9b-424a-4c0b-acc4-6d415981145d
+langcode: en
+status: true
+dependencies: {  }
+id: club_association
+label: 'Club association'
+icon_uuid: null
+icon_default: null
+description: 'Club association for Player content type with current club boolean'
+behavior_plugins: {  }

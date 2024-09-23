@@ -1,0 +1,13 @@
+players.settings:
+  type: config_object
+  label: 'Players settings'
+  mapping:
+    emails:
+      type: text
+      label: 'Emails'
+    default_image:
+      type: text
+      label: 'Default Image'
+    max_number_of_players:
+      type: integer
+      label: 'Max number of Players'

@@ -1,0 +1,14 @@
+uuid: eb658c71-d66e-4b9b-bced-1289936c09c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ihf_editor
+  module:
+    - user
+id: user_remove_role_action.ihf_editor
+label: 'Remove the IHF Editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: ihf_editor

@@ -1,0 +1,29 @@
+uuid: 4130b9e8-162f-4144-9dce-5d080eef85f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_cities
+    - taxonomy.vocabulary.city
+    - taxonomy.vocabulary.federation
+id: taxonomy_term.federation.field_cities
+field_name: field_cities
+entity_type: taxonomy_term
+bundle: federation
+label: Cities
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      city: city
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

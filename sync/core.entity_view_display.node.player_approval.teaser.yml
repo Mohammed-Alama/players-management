@@ -1,0 +1,29 @@
+uuid: 9bd0805a-96bc-446e-9c3c-90f0e4b1e6f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.player_approval.field_approval_competition
+    - field.field.node.player_approval.field_approval_player
+    - field.field.node.player_approval.field_approval_rejection_reason
+    - field.field.node.player_approval.field_approval_status
+    - node.type.player_approval
+  module:
+    - user
+id: node.player_approval.teaser
+targetEntityType: node
+bundle: player_approval
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_approval_competition: true
+  field_approval_player: true
+  field_approval_rejection_reason: true
+  field_approval_status: true
+  langcode: true

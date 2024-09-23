@@ -1,0 +1,10 @@
+uuid: a39c73de-92d8-4e2c-9e2b-b51add58b36b
+langcode: en
+status: true
+dependencies: {  }
+id: global_media
+label: 'Global Media'
+icon_uuid: null
+icon_default: null
+description: 'Media file may be image or video'
+behavior_plugins: {  }

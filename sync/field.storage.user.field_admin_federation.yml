@@ -1,0 +1,20 @@
+uuid: 981d41a7-b4ac-4a94-9584-f97af9a96125
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+id: user.field_admin_federation
+field_name: field_admin_federation
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

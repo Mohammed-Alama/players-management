@@ -1,0 +1,22 @@
+uuid: 19f12b20-3428-4acc-b74f-7b51b44e1c98
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: clubsurl_paths
+label: 'Clubs URL paths'
+type: 'canonical_entities:node'
+pattern: 'clubs/[node:nid]'
+selection_criteria:
+  70a5c897-38bb-4524-bc54-6d55a9c9f420:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 70a5c897-38bb-4524-bc54-6d55a9c9f420
+    context_mapping:
+      node: node
+    bundles:
+      club: club
+selection_logic: and
+weight: -5
+relationships: {  }

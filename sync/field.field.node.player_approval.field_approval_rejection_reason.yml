@@ -1,0 +1,19 @@
+uuid: 30bf6f2c-3233-411e-9d06-f38bb21623bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_approval_rejection_reason
+    - node.type.player_approval
+id: node.player_approval.field_approval_rejection_reason
+field_name: field_approval_rejection_reason
+entity_type: node
+bundle: player_approval
+label: 'Approval Rejection Reason'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

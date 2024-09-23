@@ -1,0 +1,32 @@
+uuid: d8594764-dffa-4828-9d6f-a728e24ca9e5
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.full
+    - field.field.taxonomy_term.federation.field_cities
+    - taxonomy.vocabulary.federation
+  module:
+    - text
+id: taxonomy_term.federation.full
+targetEntityType: taxonomy_term
+bundle: federation
+mode: full
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_cities:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

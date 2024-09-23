@@ -1,0 +1,9 @@
+uuid: badd84b2-8c6c-4021-9eda-3f904b78d350
+langcode: en
+status: true
+dependencies: {  }
+id: blog_editor
+label: 'Blog Editor'
+weight: 7
+is_admin: null
+permissions: {  }

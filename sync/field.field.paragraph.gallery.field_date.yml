@@ -1,0 +1,21 @@
+uuid: f700cf5b-5917-4019-87d3-ef28cd3570b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - datetime
+id: paragraph.gallery.field_date
+field_name: field_date
+entity_type: paragraph
+bundle: gallery
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

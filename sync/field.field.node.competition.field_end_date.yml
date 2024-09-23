@@ -1,0 +1,21 @@
+uuid: a2e16314-6481-4926-8b98-ff692bd4d01d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_end_date
+    - node.type.competition
+  module:
+    - datetime
+id: node.competition.field_end_date
+field_name: field_end_date
+entity_type: node
+bundle: competition
+label: 'End Date'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

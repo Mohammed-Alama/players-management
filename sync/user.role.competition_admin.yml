@@ -1,0 +1,9 @@
+uuid: d5d3170d-0e90-4a5b-b866-f2f5a53cf917
+langcode: en
+status: true
+dependencies: {  }
+id: competition_admin
+label: 'Competition Admin'
+weight: 4
+is_admin: null
+permissions: {  }
