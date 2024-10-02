@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Drupal\players\Form;
 
 use Drupal;
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 /**
  * Provides a Players form.
@@ -21,8 +25,8 @@ class PlayerRegistrationForm extends FormBase
   }
 
   /**
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
   public function buildForm(array $form, FormStateInterface $form_state, $competition = null)
   {
@@ -33,6 +37,10 @@ class PlayerRegistrationForm extends FormBase
     if (!empty($player_id)) {
       $player = \Drupal::entityTypeManager()->getStorage('node')->load($player_id);
     }
+    $form['competition_id'] = [
+      '#type' => 'hidden',
+      '#value' => $competition->id(),
+    ];
 
     $form['player_search'] = [
       '#type' => 'entity_autocomplete',
@@ -51,6 +59,8 @@ class PlayerRegistrationForm extends FormBase
       '#type' => 'container',
       '#attributes' => ['id' => 'player-details'],
     ];
+
+
 
     $form['player_details']['full_name'] = [
       '#type' => 'textfield',
@@ -144,8 +154,8 @@ class PlayerRegistrationForm extends FormBase
   }
 
   /**
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
   private function getClubOptions($federation_id): array
   {
@@ -193,9 +203,9 @@ class PlayerRegistrationForm extends FormBase
   }
 
   /**
-   * @throws \Drupal\Core\Entity\EntityStorageException
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws EntityStorageException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void
   {
@@ -231,6 +241,11 @@ class PlayerRegistrationForm extends FormBase
         'competition_id' => $competition_id,
         'federation_id' => $values['federation'],
       ]);
+    } elseif (Drupal::currentUser()->hasRole('federation_admin') &&  Drupal\players\Helpers\Helper::isCompetitionFull($competition_id)) {
+      $form_state->setRedirect('players.federation_competition_players', [
+        'competition_id' => $competition_id,
+        'federation_id' => $values['federation'],
+      ]);
     } else {
       $form_state->setRedirect('players.federation_competitions');
     }
@@ -238,7 +253,6 @@ class PlayerRegistrationForm extends FormBase
 
   private function updatePlayer($player, $player_details): void
   {
-//    dd($player,$player_details);
     $player->set('field_full_name', $player_details['full_name']);
     $player->set('field_date_of_birth', $player_details['date_of_birth']);
     $player->set('field_gender', $player_details['gender']);
@@ -291,9 +305,9 @@ class PlayerRegistrationForm extends FormBase
   }
 
   /**
-   * @throws \Drupal\Core\Entity\EntityStorageException
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws EntityStorageException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
   private function createPlayerApproval($player_id, $competition_id): void
   {
@@ -323,8 +337,8 @@ class PlayerRegistrationForm extends FormBase
   }
 
   /**
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
   public function playerSearchCallback(array &$form, FormStateInterface $form_state)
   {
@@ -363,8 +377,8 @@ class PlayerRegistrationForm extends FormBase
   }
 
   /**
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
   private function getCurrentUserFederation(): ?string
   {
@@ -377,8 +391,8 @@ class PlayerRegistrationForm extends FormBase
   }
 
   /**
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws InvalidPluginDefinitionException
+   * @throws PluginNotFoundException
    */
   private function getPositionOptions(): array
   {
@@ -407,4 +421,5 @@ class PlayerRegistrationForm extends FormBase
 
     return null;
   }
+
 }

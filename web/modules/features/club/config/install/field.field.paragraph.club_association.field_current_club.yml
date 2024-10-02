@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_current_club
+    - paragraphs.paragraphs_type.club_association
+id: paragraph.club_association.field_current_club
+field_name: field_current_club
+entity_type: paragraph
+bundle: club_association
+label: 'Current Club'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

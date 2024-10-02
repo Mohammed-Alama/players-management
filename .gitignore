@@ -29,3 +29,15 @@ web/libraries/
 web/sites/*/settings.local.php
 web/sites/*/services.local.yml
 web/sites/simpletest/
+web/sites/*/settings*.php
+web/sites/*/services*.yml
+web/sites/settings-global.php
+
+# Ignore paths that contain user-generated content.
+web/sites/*/files
+web/sites/*/private
+web/sites/sites.php
+
+web/modules/contrib/
+/web/modules/contrib/
+

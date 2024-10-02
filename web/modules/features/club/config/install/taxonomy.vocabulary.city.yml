@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: City
+vid: city
+description: 'Manage which city A Federation can play in it'
+weight: 0
+new_revision: false
