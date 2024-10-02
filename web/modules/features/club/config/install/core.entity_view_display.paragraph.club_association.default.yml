@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.club_association.field_club
+    - field.field.paragraph.club_association.field_current_club
+    - paragraphs.paragraphs_type.club_association
+id: paragraph.club_association.default
+targetEntityType: paragraph
+bundle: club_association
+mode: default
+content:
+  field_club:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_current_club:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

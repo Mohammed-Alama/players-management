@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.club_association.field_club
+    - field.field.paragraph.club_association.field_current_club
+    - paragraphs.paragraphs_type.club_association
+id: paragraph.club_association.default
+targetEntityType: paragraph
+bundle: club_association
+mode: default
+content:
+  field_club:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_current_club:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

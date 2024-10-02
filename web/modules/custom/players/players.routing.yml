@@ -41,8 +41,6 @@ players.federation_competitions:
   defaults:
     _controller: '\Drupal\players\Controller\FederationCompetitionsController::listCompetitions'
     _title: 'My Competitions'
-  requirements:
-    _custom_access: '\Drupal\players\Access\FederationAccessCheck::access'
 
 players.player_registration_form:
   path: '/competition/{competition}/register-player'
@@ -85,7 +83,7 @@ players.bulk_approve:
     _controller: '\Drupal\players\Controller\ApprovalPlayersController::bulkApprove'
   requirements:
     _role: 'competition_admin'
-  methods: [POST]
+  methods: [ POST ]
 
 players.reject_player_form:
   path: '/players/reject/{player}/{competition}'
@@ -95,27 +93,29 @@ players.reject_player_form:
   requirements:
     _role: 'competition_admin'
 
-players.api_login:
-  path: '/api/login'
+
+players.api_get_clubs:
+  path: '/api/clubs'
   defaults:
-    _controller: '\Drupal\players\Controller\UserLoginApiController::login'
-  methods: [POST]
+    _controller: '\Drupal\players\Controller\Api\ClubsApiController::getClubs'
+    _title: 'Get Clubs API'
+  methods: ['GET']
   requirements:
     _permission: 'access content'
 
-players.api_logout:
-  path: '/api/logout'
+players.api_add_player:
+  path: '/api/players/add'
   defaults:
-    _controller: '\Drupal\players\Controller\UserLoginApiController::logout'
-  methods: [POST]
+    _controller: '\Drupal\players\Controller\Api\PlayerApiController::addPlayer'
+  methods: [ POST ]
   requirements:
     _user_is_logged_in: 'TRUE'
 
-players.api_user_info:
-  path: '/api/user/info'
+players.api_list_payers:
+  path: '/api/players/all'
   defaults:
-    _controller: '\Drupal\players\Controller\UserLoginApiController::getUserInfo'
-  methods: [GET]
+    _controller: '\Drupal\players\Controller\Api\PlayerApiController::getAll'
+  methods: [ GET ]
   requirements:
     _user_is_logged_in: 'TRUE'
 
@@ -129,3 +129,17 @@ players.latest_players_by_competition:
     parameters:
       competition:
         type: entity:node
+players.user_create:
+  path: '/admin/people/create'
+  defaults:
+    _form: '\Drupal\user\Form\UserForm'
+    _title: 'Add User'
+  requirements:
+    _permission: 'administer users'
+players.ihf_operations:
+  path: '/manage-content'
+  defaults:
+      _controller: '\Drupal\players\Controller\ContentOperationController::prepareLinks'
+      _title: 'Operate Content'
+  requirements:
+      _permission: 'access content'

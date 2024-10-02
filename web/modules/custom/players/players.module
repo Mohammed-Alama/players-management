@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 
@@ -46,17 +47,59 @@ function players_theme($existing, $type, $theme, $path): array
       'variables' => [
         'players' => [],
       ],
-    ],  
+    ],
   ];
 }
 
 /**
  * Implements hook_form_alter().
  */
-function players_form_alter(&$form, FormStateInterface $form_state, $form_id)
+function players_form_alter(&$form, FormStateInterface $form_state, $form_id): void
 {
+  if ($form_id == 'user_login_form') {
+    $form['#submit'][] = 'players_user_login_redirect';
+  }
+
   if ($form_id == 'node_player_form' || $form_id == 'node_player_edit_form') {
     $form['#attached']['library'][] = 'players/player_club';
+  }
+
+  if (in_array($form_id, ['node_competition_edit_form', 'node_competition_form'])) {
+    $form['#validate'][] = 'players_competition_date_validation';
+  }
+
+  if ($form_id == 'player_registration_form') {
+    $form['#validate'][] = 'players_check_competition_max_players';
+  }
+}
+
+function players_user_login_redirect(&$form, FormStateInterface $form_state): void
+{
+  $account = \Drupal::currentUser();
+  if ($account->hasRole('federation_admin')) {
+    $form_state->setRedirect('players.federation_competitions');
+  }
+
+  if ($account->hasRole('competition_admin')) {
+    $form_state->setRedirect('players.published_federations');
+  }
+
+  if ($account->hasRole('ihf_editor')) {
+    $url = Url::fromUri('internal:/manage-content');
+    $form_state->setRedirectUrl($url);
+  }
+}
+
+function players_competition_date_validation($form, FormStateInterface $form_state): void
+{
+  $start_date = $form_state->getValue(['field_start_date', 0, 'value']);
+  $end_date = $form_state->getValue(['field_end_date', 0, 'value']);
+
+  $start_timestamp = strtotime($start_date);
+  $end_timestamp = strtotime($end_date);
+
+  if ($end_timestamp <= $start_timestamp) {
+    $form_state->setErrorByName('field_end_date', t('The end date must be after the start date.'));
   }
 }
 
@@ -85,4 +128,16 @@ function players_install()
       ],
     ],
   ])->save();
+}
+
+function players_check_competition_max_players(&$form, FormStateInterface $form_state): void
+{
+  $values = $form_state->getValues();
+
+  if (Drupal\players\Helpers\Helper::isCompetitionFull($values['competition_id'])) {
+    $form_state->setRedirect('players.federation_competition_players', [
+      'competition_id' => $values['competition_id'],
+      'federation_id' => $values['federation'],
+    ]);
+  }
 }
